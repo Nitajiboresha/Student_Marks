@@ -1,0 +1,4 @@
+Student routes loaded successfully
+Server is running on http://localhost:3000
+Health check: http://localhost:3000/health
+Frontend: http://localhost:3000/

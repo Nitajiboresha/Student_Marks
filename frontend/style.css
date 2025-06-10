@@ -1,24 +1,443 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-h1 {
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* Container Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+    background: linear-gradient(45deg, #2c3e50, #34495e);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.header h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.9em;
+}
+
+.logout-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+    background: #c0392b;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.controls {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #3498db;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Table Styles */
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.student-table th,
+.student-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.student-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+.student-table tr:hover {
+    background: #f8f9fa;
+    transform: scale(1.01);
+    transition: all 0.2s ease;
+}
+
+.student-table .pass {
+    background: #d4edda;
+}
+
+.student-table .fail {
+    background: #f8d7da;
+}
+
+.student-name {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.subject-marks {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.total, .average {
+    font-weight: 600;
+}
+
+.grade {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+.grade-a { background: #28a745; color: white; }
+.grade-b { background: #17a2b8; color: white; }
+.grade-c { background: #ffc107; color: #212529; }
+.grade-d { background: #fd7e14; color: white; }
+.grade-f { background: #dc3545; color: white; }
+
+.status {
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+.status-pass {
+    background: #28a745;
+    color: white;
+}
+
+.status-fail {
+    background: #dc3545;
+    color: white;
+}
+
+/* Summary Styles */
+.summary {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border-left: 4px solid #3498db;
+}
+
+.summary h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.summary p {
+    margin: 5px 0;
+    color: #666;
+}
+
+/* Footer */
+.footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+}
+
+/* Login Page Styles */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 500px;
+}
+
+.login-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.login-header {
+    background: linear-gradient(45deg, #2c3e50, #34495e);
+    color: white;
+    padding: 30px;
     text-align: center;
 }
 
-table {
+.login-header h1 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+.login-header p {
+    opacity: 0.9;
+    font-size: 1.1em;
+}
+
+.login-form {
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.form-group input {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
+.form-group input:focus {
+    outline: none;
+    border-color: #3498db;
 }
 
-th {
-    background-color: #f2f2f2;
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.login-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.login-help {
+    background: #f8f9fa;
+    padding: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.login-help h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.credentials {
+    display: grid;
+    gap: 15px;
+}
+
+.credential-item {
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 4px solid #3498db;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+/* Loading and Message Styles */
+.loading {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2em;
+    color: #666;
+}
+
+.message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    z-index: 1000;
+    max-width: 400px;
+    animation: slideIn 0.3s ease;
+}
+
+.message.success {
+    background: #28a745;
+}
+
+.message.error {
+    background: #dc3545;
+}
+
+.message.info {
+    background: #17a2b8;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.error {
+    color: #dc3545;
+    text-align: center;
+    padding: 20px;
+    background: #f8d7da;
+    border-radius: 6px;
+    border: 1px solid #f5c6cb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .header h1 {
+        font-size: 1.5em;
+    }
+    
+    .main-content {
+        padding: 15px;
+    }
+    
+    .student-table {
+        font-size: 0.9em;
+    }
+    
+    .student-table th,
+    .student-table td {
+        padding: 10px 8px;
+    }
+    
+    .subject-marks {
+        font-size: 0.8em;
+    }
+    
+    .credentials {
+        grid-template-columns: 1fr;
+    }
+    
+    .message {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        margin: 10px;
+    }
+    
+    .login-form {
+        padding: 20px;
+    }
+    
+    .student-table {
+        font-size: 0.8em;
+    }
+    
+    .grade,
+    .status {
+        font-size: 0.9em;
+        padding: 3px 6px;
+    }
 }
